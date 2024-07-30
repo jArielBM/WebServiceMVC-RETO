@@ -1,0 +1,42 @@
+﻿@model IEnumerable< WebServiceMVC_RETO.Models.Cerveza>
+
+@{
+    ViewData["Title"] = "Cervezas";
+}
+
+<h1>Cervezas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva cerveza</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Grados de Alcohol</th>
+            <th>Precio</th>
+            <th>Compañía</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cerveza in Model)
+        {
+            <tr>
+                <td>@cerveza.Id</td>
+                <td>@cerveza.Name</td>
+                <td>@cerveza.Description</td>
+                <td>@cerveza.AlcoholGrades</td>
+                <td>@cerveza.Price</td>
+                <td>@cerveza.Company</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cerveza.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@cerveza.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

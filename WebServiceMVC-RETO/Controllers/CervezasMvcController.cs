@@ -25,7 +25,7 @@ namespace WebServiceMVC_RETO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price")] Cerveza cerveza)
+        public async Task<IActionResult> Create([Bind("Name,Description, AlcoholGrades, Price, Company")] Cerveza cerveza)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +53,7 @@ namespace WebServiceMVC_RETO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price")] Cerveza cerveza)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description, AlcoholGrades, Price, Company")] Cerveza cerveza)
         {
             if (id != cerveza.Id)
             {
@@ -102,7 +102,7 @@ namespace WebServiceMVC_RETO.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var cerveza = await _context.Cervezas.FindAsync(id);
             _context.Cervezas.Remove(cerveza);

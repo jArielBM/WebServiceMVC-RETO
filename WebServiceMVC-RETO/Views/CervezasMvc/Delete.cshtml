@@ -1,0 +1,47 @@
+﻿@model WebServiceMVC_RETO.Models.Cerveza
+
+@{
+    ViewData["Title"] = "Eliminar Cerveza";
+}
+
+<h1>Eliminar Cerveza</h1>
+
+<h4>Cerveza</h4>
+<hr />
+
+<p>¿Estás seguro de que quieres eliminar esta cerveza?</p>
+
+<div>
+    <h4>@Model.Name</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Descripción
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Description
+        </dd>
+        <dt class="col-sm-2">
+            Grados de Alcohol
+        </dt>
+        <dd class="col-sm-10">
+            @Model.AlcoholGrades
+        </dd>
+        <dt class="col-sm-2">
+            Precio
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Price
+        </dd>
+        <dt class="col-sm-2">
+            Compañía
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Company
+        </dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
